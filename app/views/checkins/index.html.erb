@@ -22,7 +22,7 @@
     var marker = new google.maps.Marker({
         position: latLng, 
         map: map,
-        title: "<%= checkin.title %>"
+        title: "<%= escape_javascript(checkin.title) %>"
     });
     
     // Add click event
