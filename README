@@ -2,6 +2,6 @@
 
 This a location aware Ruby on Rails app that stores check-ins based on the user's current location, shows nearby check-ins, and displays check-ins on a map.
 
-View my blog post with a walk-through of this app: http://lassebunk.dk
+View my blog post with a walk-through of this app: http://lassebunk.dk/2011/09/10/creating-a-location-aware-website-using-ruby-on-rails-and-postgis/
 See this app in action: http://test.lassebunk.dk/checkins/
 This app depends on PostgreSQL and PostGIS. How to install PostgreSQL and PostGIS on Mac OS X: http://lassebunk.dk/2011/09/08/installing-postgresql-and-postgis-on-mac-os-x/
