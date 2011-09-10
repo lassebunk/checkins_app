@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @checkin.title %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @checkin.latitude %>, <%= @checkin.longitude %>
+</p>
+
+<h2>Nearby check-ins</h2>
+<ul>
+  <% @nearby_checkins.each do |checkin| %>
+    <li><%= link_to checkin.title, checkin %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_checkin_path(@checkin) %> |
+<%= link_to 'Back', checkins_path %>

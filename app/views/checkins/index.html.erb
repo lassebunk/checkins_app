@@ -1,0 +1,39 @@
+<h1>Listing checkins</h1>
+
+<%= link_to 'New Checkin', new_checkin_path %>
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<div id="map" style="width: 600px; height: 500px;"></div>
+
+<script type="text/javascript">
+  // Create the map
+  var map = new google.maps.Map(document.getElementById("map"), {
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+  
+  // Initialize the bounds container
+  var bounds = new google.maps.LatLngBounds();
+  
+  <% @checkins.each do |checkin| %>
+    // Create the LatLng
+    var latLng = new google.maps.LatLng(<%= checkin.latitude %>, <%= checkin.longitude %>);
+    
+    // Create the marker
+    var marker = new google.maps.Marker({
+        position: latLng, 
+        map: map,
+        title: "<%= checkin.title %>"
+    });
+    
+    // Add click event
+    google.maps.event.addListener(marker, 'click', function() {
+      document.location = '<%= checkin_path(checkin) %>';
+    });
+    
+    // Extend the bounds
+    bounds.extend(latLng);
+  <% end %>
+  
+  // Fit to bounds
+  map.fitBounds(bounds);
+</script>
